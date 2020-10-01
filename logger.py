@@ -65,10 +65,18 @@ def reset_color():
    """
    sets console color to initial state
    """
-   print(reset,end="")
-def set_color(color:str):
+   print(reset, end="")
+def set_color(*color:str):
    """
    sets console color to arg:'color'
    """
-   print(color, end="")
-
+   for i in color:
+      print(i, end="")
+def format_color(*value, color:str) -> str:
+   """
+   returns a string formatted with arg:'color'
+   """
+   ret = reset+color
+   for i in value:
+      ret += i
+   return ret

@@ -3,6 +3,9 @@ from logger import *
 # print(REVERSED + "Hola" + RESET)
 # print(BOLD + "Hola")
 # print(UNDERLINE + "Hola" + RESET)
+set_color(bg.white, fg.black)
+print("PYTHON LOGGER BY COGNO-MARCO & CARPAL")
+reset_color()
 
 LOG_ERROR(fg.cyan,"An Error Occurred Unexpectedly")
 LOG_WARNING(fg.cyan,"Something strange is happening")
@@ -20,5 +23,8 @@ string = [
    reset
 ]
 printl(string) # print array
-print(url+"https://github.com/Cogno-Marco/YetAnotherPyLogger") # underline
+print(url+"https://github.com/Cogno-Marco/YetAnotherPyLogger",
+   format_color("->", color=fg.red),
+   format_color("Star ", color=fg.yellow)
+)
 reset_color() # reset colors
