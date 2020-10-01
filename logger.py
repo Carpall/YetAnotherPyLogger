@@ -1,6 +1,6 @@
 import sys
-import os
-os.system("")
+# import os
+# os.system("") ???
 
 reset = "\u001b[0m"
 
@@ -11,32 +11,58 @@ blink =     "\33[5m"
 underline = "\u001b[4m"
 reversed =  "\u001b[7m"
 
-black =     "\u001b[38;5;0m"
-gray =      "\u001b[38;5;8m"
-red =       "\u001b[38;5;9m"
-green =     "\u001b[38;5;10m"
-yellow =    "\u001b[38;5;11m"
-blue =      "\u001b[38;5;12m"
-purple =    "\u001b[38;5;13m"
-cyan =      "\u001b[38;5;14m"
-white =     "\u001b[38;5;15m"
+class fg():
+   black =     "\u001b[38;5;0m"
+   gray =      "\u001b[38;5;8m"
+   red =       "\u001b[38;5;9m"
+   green =     "\u001b[38;5;10m"
+   yellow =    "\u001b[38;5;11m"
+   blue =      "\u001b[38;5;12m"
+   purple =    "\u001b[38;5;13m"
+   cyan =      "\u001b[38;5;14m"
+   white =     "\u001b[38;5;15m"
+class bg():
+   black =  "\u001b[48;5;0m"
+   gray =   "\u001b[48;5;8m"
+   red =    "\u001b[48;5;9m"
+   green =  "\u001b[48;5;10m"
+   yellow = "\u001b[48;5;11m"
+   blue =   "\u001b[48;5;12m"
+   purple = "\u001b[48;5;13m"
+   cyan =   "\u001b[48;5;14m"
+   white =  "\u001b[48;5;15m"
 
-bg_black =  "\u001b[48;5;0m"
-bg_gray =   "\u001b[48;5;8m"
-bg_red =    "\u001b[48;5;9m"
-bg_green =  "\u001b[48;5;10m"
-bg_yellow = "\u001b[48;5;11m"
-bg_blue =   "\u001b[48;5;12m"
-bg_purple = "\u001b[48;5;13m"
-bg_cyan =   "\u001b[48;5;14m"
-bg_white =  "\u001b[48;5;15m"
 
+def LOG_ERROR(*text, sep=" ", end="\n"):
+   print(fg.red    + bold + "[-] Error: "   + reset, end="")
+   for i in text:
+      print(i, end=sep)
+   print(reset, end=end)
+def LOG_WARNING(*text, sep=" ", end="\n"):
+   print(fg.yellow    + bold + "[!] Warning: "   + reset, end="")
+   for i in text:
+      print(i, end=sep)
+   print(reset, end=end)
+def LOG_INFO(*text, sep=" ", end="\n"):
+   print(fg.blue    + bold + "[?] Info: "   + reset, end="")
+   for i in text:
+      print(i, end=sep)
+   print(reset, end=end)
+def LOG_SUCCESS(*text, sep=" ", end="\n"):
+   print(fg.green    + bold + "[-] Error: "   + reset, end="")
+   for i in text:
+      print(i, end=sep)
+   print(reset, end=end)
 
-def LOG_ERROR(text):    print(reset + red    + bold + "[-] Error: "   + reset + text + reset)
-def LOG_WARNING(text):  print(reset + yellow + bold + "[!] Warning: " + reset + text + reset)
-def LOG_INFO(text):     print(reset + blue   + bold + "[?] Info: "    + reset + text + reset)
-def LOG_SUCCESS(text):  print(reset + green  + bold + "[+] Success: " + reset + text + reset)
-
+def printl(arr:list, end="\n"):
+   """
+   printl joins a list, printing its items
+   """
+   for i in range(len(arr)):
+      print(arr[i], end="")
+   print(end=end)
+def resetc():
+   print(reset,end="")
 def CUSTOM_COLOR(number):    print(f"\u001b[38;5;{number}m")
 def CUSTOM_BG_COLOR(number): print(f"\u001b[48;5;{number}m")
 
