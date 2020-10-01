@@ -61,8 +61,14 @@ def printl(arr:list, end="\n"):
    for i in range(len(arr)):
       print(arr[i], end="")
    print(end=end)
-def resetc():
+def reset_color():
+   """
+   sets console color to initial state
+   """
    print(reset,end="")
-def CUSTOM_COLOR(number):    print(f"\u001b[38;5;{number}m")
-def CUSTOM_BG_COLOR(number): print(f"\u001b[48;5;{number}m")
+def set_color(color:str):
+   """
+   sets console color to arg:'color'
+   """
+   print(color, end="")
 

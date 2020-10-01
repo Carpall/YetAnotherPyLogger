@@ -21,4 +21,4 @@ string = [
 ]
 printl(string) # print array
 print(url+"https://github.com/Cogno-Marco/YetAnotherPyLogger") # underline
-resetc() # reset colors
+reset_color() # reset colors
